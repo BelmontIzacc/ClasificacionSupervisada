@@ -128,6 +128,7 @@ public class NaiveBayes implements Clasificador{
            //System.out.println(""+Tokenizador.inst.getClases().get(pos));
            String clase = Tokenizador.inst.getClases().get(pos);
            patron.setClase_resultado(clase);
+           
         int pertenece = Tokenizador.inst.getClases().indexOf(patron.getClase());
         int resultado = Tokenizador.inst.getClases().indexOf(patron.getClase_resultado());
         this.getMatriz().acumula(pertenece, resultado);

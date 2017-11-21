@@ -61,6 +61,9 @@ public class Knn  implements Clasificador{
      String claseResultado = verificarKvecinos();
      patron.setClase_resultado(claseResultado);
      
+        int pertenece = Tokenizador.inst.getClases().indexOf(patron.getClase());
+        int resultado = Tokenizador.inst.getClases().indexOf(patron.getClase_resultado());
+        this.getMatriz().acumula(pertenece, resultado);
        if(patron.getClase().equals(patron.getClase_resultado()))
               {
                   contadorCorrectos++;
@@ -76,6 +79,7 @@ public class Knn  implements Clasificador{
        }
        // calcular el % de clasificion correcta
        this.rendimiento = (this.contadorCorrectos/patrones.size())*100;
+       matriz.setNombre(Tokenizador.inst.getClases());
        matriz.graficar(getMatriz().matriz);
        
     }
